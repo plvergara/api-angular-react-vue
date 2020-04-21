@@ -1,0 +1,11 @@
+{
+  "name": "api-arv",
+  "version": "1.0.0",
+  "description": "api project angular-react-vue",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run dev"
+  },
+  "author": "Pedro Vergara",
+  "license": "ISC"
+}
