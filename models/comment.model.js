@@ -1,28 +1,24 @@
-const mongoose = require('mongoose')
-require('../models/comment.model')
-const Schema = mongoose.Schema
+const mongoose = require('mongoose');
 
-const articleSchema = Schema(
+const commentSchema = new mongoose.Schema(
     {
-        title: {
-            type: String,
-            required: true,
-        },
         body: {
             type: String,
-            required: true,
+            required: true
         },
         date: {
             type: Date,
-            daefault: Date.now
+            default: Date.now
         },
         user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',
             required: true
         },
-        image: {
-            type: String
+        article: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Article',
+            required: true
         }
     },
     {
@@ -37,15 +33,8 @@ const articleSchema = Schema(
             }
         }
     }
-
 )
 
-articleSchema.virtual('comments', {
-    ref: 'Comment',
-    localField: '_id',
-    foreignField: 'article',
-    justOne: false,
-})
+const Comment = mongoose.model('Comment', commentSchema);
 
-const Article = mongoose.model('Article', articleSchema)
-module.exports = Article
+module.exports = Comment;
