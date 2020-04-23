@@ -1,5 +1,3 @@
-'use strict'
-
 require('dotenv').config();
 
 const createError = require('http-errors');
@@ -42,6 +40,7 @@ app.use('/', router);
 app.use(function (req, res, next) {
     next(createError(404));
 });
+
 // Configure body-parser
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
