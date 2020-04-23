@@ -52,8 +52,8 @@ const userSchema = Schema(
 
 userSchema.virtual('articles', {
     ref: 'Article',
-    localField: '_id',
-    foreignField: 'user',
+    localField: 'user',
+    foreignField: '_id',
     justOne: false,
 })
 

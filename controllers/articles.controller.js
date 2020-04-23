@@ -70,7 +70,7 @@ module.exports.addComment = (req, res, next) => {
     const artId = req.params.id
 
     const comment = new Comment({
-        body: req.body,
+        text: req.body.text,
         user: req.currentUser.id,
         article: artId
     })

@@ -14,7 +14,7 @@ const articleSchema = Schema(
         },
         date: {
             type: Date,
-            daefault: Date.now
+            default: Date.now
         },
         user: {
             type: mongoose.Schema.Types.ObjectId,
