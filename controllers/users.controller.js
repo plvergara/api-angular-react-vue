@@ -9,11 +9,9 @@ module.exports.list = (req, res, next) => {
 }
 
 module.exports.get = (req, res, next) => {
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-        throw createError(404, 'invalid Id')
-    }
-    User.findById(req.params.id)
+    User.findOne({ userName: req.params.username })
         .then(user => {
+            console.info(user)
             if (!user) {
                 throw createError(404, 'user not found')
             }

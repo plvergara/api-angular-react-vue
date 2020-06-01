@@ -16,7 +16,8 @@ router.get('/search/:search', authMiddleware.isAuthenticated, articlesController
 
 router.get('/users', authMiddleware.isAuthenticated, usersController.list)
 router.post('/users', authMiddleware.isNotAuthenticated, usersController.create)
-router.get('/users/:username', authMiddleware.isAuthenticated, articlesController.profile)
+router.get('/users/:username', authMiddleware.isAuthenticated, usersController.get)
+router.get('/users/:username/articles', authMiddleware.isAuthenticated, articlesController.profile)
 router.patch('/users/:id', authMiddleware.isAuthenticated, usersController.update)
 router.delete('/users/:id', authMiddleware.isAuthenticated, usersController.delete)
 

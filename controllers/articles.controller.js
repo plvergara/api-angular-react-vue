@@ -123,16 +123,12 @@ module.exports.delete = (req, res, next) => {
 }
 
 module.exports.profile = (req, res, next) => {
-    User.findOne({ username: req.params.username })
-        .populate({
-            path: 'article',
-            populate: {
-                path: 'user'
-            }
-        })
-        .then(user => {
-            if (user) {
-                res.status(201).json(user)
+    const userName = req.params.username
+    Article.find()
+        .populate('user')
+        .then(articles => {
+            if (articles) {
+                res.status(201).json(articles.filter(article => article.user.userName === userName))
             } else {
                 throw createError(404, 'user not found')
             }
