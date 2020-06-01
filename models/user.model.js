@@ -20,7 +20,7 @@ const userSchema = Schema(
             lowercase: true,
             match: [EMAIL_PATTERN, 'Email is invalid']
         },
-        username: {
+        userName: {
             type: String,
             required: [true, 'Username is required'],
             unique: true,

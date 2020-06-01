@@ -11,11 +11,10 @@ module.exports.list = (req, res, next) => {
         }
         : {}
     const last = req.params.last
-    console.info(last)
     if (last || last !== undefined) {
-        Article.find(criteria).limit(5)
+        Article.find(criteria)
             .sort({ createdAt: -1 })
-            .limit(100)
+            .limit(5)
             .populate('user')
             .then(article => {
                 res.status(200).json(article)
