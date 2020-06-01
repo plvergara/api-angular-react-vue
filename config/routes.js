@@ -10,8 +10,8 @@ router.get('/articles/:id', articlesController.get)
 router.patch('/articles/:id', authMiddleware.isAuthenticated, articlesController.update)
 router.delete('/articles/:id', authMiddleware.isAuthenticated, articlesController.delete)
 router.post('/articles/:id/comments', authMiddleware.isAuthenticated, articlesController.addComment)
-router.post('/upload-image/:id?', authMiddleware.isAuthenticated, md_upload, articlesController.upload);
-router.get('/get-image/:image', authMiddleware.isAuthenticated, articlesController.getImage);
+// router.post('/upload-image/:id?', authMiddleware.isAuthenticated, md_upload, articlesController.upload);
+// router.get('/get-image/:image', authMiddleware.isAuthenticated, articlesController.getImage);
 router.get('/search/:search', authMiddleware.isAuthenticated, articlesController.search);
 
 router.get('/users', authMiddleware.isAuthenticated, usersController.list)
